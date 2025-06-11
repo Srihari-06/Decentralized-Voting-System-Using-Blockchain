@@ -1,5 +1,5 @@
 # Decentralized-Voting-System-Using-Blockchain
-a secure, transparent, and tamper-proof voting system leveraging blockchain technology. This project addresses critical challenges in traditional voting methods, such as fraud, lack of transparency, and inefficiency, by introducing a decentralized, immutable, and verifiable solution.
+A secure, transparent, and tamper-proof voting system leveraging blockchain technology. This project addresses critical challenges in traditional voting methods, such as fraud, lack of transparency, and inefficiency, by introducing a decentralized, immutable, and verifiable solution.
 ![Blockchain Voting System - Google Chrome 4_13_2025 10_22_53 AM](https://github.com/user-attachments/assets/7c01a649-adac-4174-b4af-98dbf18ed06d)
 ![Registration](https://github.com/user-attachments/assets/3955153a-714b-42e8-8f69-24755522ef8c)
 
