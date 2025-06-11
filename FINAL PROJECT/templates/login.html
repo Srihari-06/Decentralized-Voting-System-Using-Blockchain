@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voter Login | Blockchain Voting</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='/auth.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="login-container">
+        <div class="login-card">
+            <div class="login-header">
+                <div class="logo">
+                    <i class="fas fa-vote-yea"></i>
+                    <span>Voter Authentication</span>
+                </div>
+                <h2>Cast Your Secure Vote</h2>
+            </div>
+
+            <form action="{{ url_for('login') }}" method="POST" class="login-form">
+                {% if error %}
+                <div class="alert alert-danger">
+                    {{ error }}
+                </div>
+                {% endif %}
+
+
+                <div class="form-group">
+                    <label for="username"><i class="fas fa-user"></i> Voter ID</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password"><i class="fas fa-lock"></i> Private Key</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+
+                <button type="submit" class="login-btn">
+                    <i class="fas fa-fingerprint"></i> Verify Identity
+                </button>
+            </form>
+
+            <div class="login-footer">
+                <p>New to blockchain voting? <a href="{{ url_for('register') }}">Register identity</a></p>
+                <a href="{{ url_for('index') }}" class="back-link">
+                    <i class="fas fa-arrow-left"></i> Return to Home
+                </a>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

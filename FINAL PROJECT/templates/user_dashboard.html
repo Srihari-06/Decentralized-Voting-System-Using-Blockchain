@@ -1,0 +1,56 @@
+<!-- templates/user.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Dashboard - Blockchain Voting</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="blockchain-title">
+                <i class="fas fa-vote-yea"></i> Ongoing Elections
+                <span class="blockchain-subtitle">Cast your vote securely</span>
+            </h1>
+        </header>
+
+        <div class="election-grid">
+            {% for election in elections %}
+                <div class="election-card">
+                    <h3>{{ election.name }}</h3>
+                    <p class="election-dates">
+                        <i class="fas fa-calendar-alt"></i> {{ election.start_date }} - {{ election.end_date }}
+                    </p>
+                    {% if db.has_user_voted(db_connection, session['user_id'], election.id) %}
+                        <p class="voted-message">You have already voted in this election.</p>
+                    {% else %}
+                        <form action="/vote" method="POST" class="vote-form">
+                            <input type="hidden" name="election_id" value="{{ election.id }}">
+                            <div class="candidate-options">
+                                <label>
+                                    <input type="radio" name="candidate" value="Candidate A" required>
+                                    <img src="{{ election.candidate1_image }}" alt="{{ election.candidate1_name }}" width="150">                                    <span class="candidate-name">{{ election.candidate1_name }}</span>
+                                </label>
+                                <label>
+                                    <input type="radio" name="candidate" value="Candidate B" required>
+                                    <img src="{{ election.candidate2_image }}" alt="{{ election.candidate2_name }}" width="150">                                    <span class="candidate-name">{{ election.candidate2_name }}</span>
+                                </label>
+                            </div>
+                            <button type="submit" class="btn blockchain-btn">
+                                <i class="fas fa-vote-yea"></i> Cast Vote
+                            </button>
+                        </form>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+
+        <div class="results-link">
+            <a href="/results" class="btn outline-btn">
+                <i class="fas fa-chart-bar"></i> View Results
+            </a>
+        </div>
+    </div>
+</body>
+</html>

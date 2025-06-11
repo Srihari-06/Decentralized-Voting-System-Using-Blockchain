@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register - Blockchain Voting</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="blockchain-title">
+                <i class="fas fa-link"></i> Join the Blockchain Network
+                <span class="blockchain-subtitle">Create your secure identity</span>
+            </h1>
+        </header>
+
+        <div class="auth-container">
+            <div class="auth-card">
+                <h2><i class="fas fa-user-plus"></i> Register</h2>
+                <form action="/register" method="POST" class="auth-form">
+                    <div class="input-group">
+                        <i class="fas fa-user"></i>
+                        <input type="text" name="username" placeholder="Username" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" name="password" placeholder="Password" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" name="confirm_password" placeholder="Confirm Password" required>
+                    </div>
+                    <button type="submit" class="btn blockchain-btn">
+                        <i class="fas fa-wallet"></i> Create Blockchain ID
+                    </button>
+                </form>
+                <p class="auth-link">Already have an account? <a href="/">Login here</a></p>
+            </div>
+
+            <div class="auth-card register-promo">
+                <h2><i class="fas fa-shield-alt"></i> Why Join?</h2>
+                <div class="blockchain-features">
+                    <div class="feature">
+                        <i class="fas fa-fingerprint"></i>
+                        <p>Secure Identity</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-vote-yea"></i>
+                        <p>Transparent Voting</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-link"></i>
+                        <p>Immutable Records</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Blockchain Visualization -->
+        <div class="blockchain-visual">
+            <div class="block"></div>
+            <div class="chain"></div>
+            <div class="block"></div>
+            <div class="chain"></div>
+            <div class="block"></div>
+        </div>
+    </div>
+</body>
+</html>
